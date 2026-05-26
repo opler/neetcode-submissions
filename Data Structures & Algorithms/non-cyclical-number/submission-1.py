@@ -1,0 +1,22 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        if n==1:
+            return True
+        visit=set()
+        while n not in visit:
+            visit.add(n)
+            n=self.sumofsquares(n)
+            if n==1:
+                return True
+        return False        
+
+    def sumofsquares(self,n):
+        output=0
+        while n:
+            digit=n%10
+            output=output+digit*digit
+            n=n//10
+        return output    
+
+
+        
